@@ -17,3 +17,6 @@ DEVICE_PACKAGE_OVERLAYS += device/amazon/hdx-common/overlay-lineage
 
 # Inherit some common AICP stuff.
 $(call inherit-product-if-exists, vendor/aicp/configs/common_mini_tablet_wifionly.mk)
+
+# Snap Camera
+PRODUCT_PACKAGES += Snap
