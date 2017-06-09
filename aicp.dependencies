@@ -6,5 +6,10 @@
   {
     "repository": "android_kernel_amazon_hdx-common",
     "target_path": "kernel/amazon/hdx-common"
+  },
+  {
+    "repository":  "mordiford/packages_apps_SnapdragonCamera",
+    "target_path": "packages/apps/SnapdragonCamera",
+    "branch":      "n7.1"
   }
 ]
