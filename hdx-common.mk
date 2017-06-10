@@ -78,6 +78,10 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/usr/keylayout/synaptics_rmi4_i2c.kl:system/usr/keylayout/synaptics_rmi4_i2c.kl \
 	$(LOCAL_PATH)/configs/usr/keylayout/Vendor_1949_Product_0402.kl:system/usr/keylayout/Vendor_1949_Product_0402.kl
 
+# Camera
+PRODUCT_PACKAGES += \
+	Snap
+
 # Charger
 PRODUCT_PACKAGES += \
 	charger \
