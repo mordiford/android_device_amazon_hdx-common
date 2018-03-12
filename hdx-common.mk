@@ -169,7 +169,7 @@ PRODUCT_PACKAGES += \
 
 # DTB Tool
 PRODUCT_PACKAGES += \
-	dtbToolCM
+	dtbToolLineage
 
 # Wifi module
 PRODUCT_PACKAGES += \
