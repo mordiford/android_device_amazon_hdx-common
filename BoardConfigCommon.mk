@@ -25,6 +25,9 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 # and see if there are possible replacements using other device binaries
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
+# Binder API version
+TARGET_USES_64_BIT_BINDER := true
+
 # Kernel
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01e00000
 BOARD_KERNEL_BASE := 0x00000000
