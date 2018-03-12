@@ -157,7 +157,8 @@ PRODUCT_PACKAGES += \
 	p2p_supplicant_overlay.conf \
 	hostapd_default.conf \
 	hostapd.accept \
-	hostapd.deny
+	hostapd.deny \
+        wificond
 
 # QCOM Crypto
 PRODUCT_PACKAGES += \
