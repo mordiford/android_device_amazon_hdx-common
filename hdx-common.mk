@@ -176,8 +176,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	ath6kl_usb.ko
 
-PRODUCT_BOOT_JARS += \
-	qcmediaplayer
+#PRODUCT_BOOT_JARS += \
+#	qcmediaplayer
 
 # ABI fixes for old binaries
 PRODUCT_PACKAGES += \
