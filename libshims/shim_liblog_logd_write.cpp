@@ -20,7 +20,7 @@
 
 #define LOG_BUF_SIZE 1024
 
-int lab126_log_write(int bufID, int prio, const char *tag, const char *fmt, ...)
+extern "C" int lab126_log_write(int bufID, int prio, const char *tag, const char *fmt, ...)
 {
 	va_list ap;
 	char buf[LOG_BUF_SIZE];
@@ -49,7 +49,7 @@ int lab126_log_write(int bufID, int prio, const char *tag, const char *fmt, ...)
 	return __android_log_buf_write(LOG_ID_MAIN, ANDROID_LOG_DEBUG, new_tag, buf);
 }
 
-int __vitals_log_print(int bufID, int prio, const char *tag, const char *fmt, ...)
+extern "C" int __vitals_log_print(int bufID, int prio, const char *tag, const char *fmt, ...)
 {
 	va_list ap;
 	char buf[LOG_BUF_SIZE];

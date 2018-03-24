@@ -28,7 +28,7 @@ include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 
-LOCAL_SRC_FILES := shim_liblog_logd_write.c
+LOCAL_SRC_FILES := shim_liblog_logd_write.cpp
 
 LOCAL_SHARED_LIBRARIES := liblog
 
