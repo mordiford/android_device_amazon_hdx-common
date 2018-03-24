@@ -21,7 +21,5 @@
 
 #define BTM_DEF_LOCAL_NAME   "KFire HDX"
 
-#define KERNEL_MISSING_CLOCK_BOOTTIME_ALARM TRUE
-
 #endif
 
