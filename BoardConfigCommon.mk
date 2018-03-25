@@ -50,6 +50,8 @@ BOARD_USES_QCOM_HARDWARE := true
 TARGET_USES_QCOM_BSP := true
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
+TARGET_LD_SHIM_LIBS := /system/lib/libbinder.so|libshim_libbinder.so:/system/lib/liblog.so|libshim_liblog.so:/system/lib/libcutils.so|libshim_liblog.so:/system/vendor/lib/libwvm.so|libshim_libwvm.so
+
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_LEGACY_ALSA_AUDIO := false
