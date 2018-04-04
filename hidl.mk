@@ -43,8 +43,8 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.0-service-qti
 
 # Sensors
-PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl
+#PRODUCT_PACKAGES += \
+#    android.hardware.sensors@1.0-impl
 
 # Wifi
 PRODUCT_PACKAGES += \
