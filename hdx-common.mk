@@ -183,7 +183,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	libshim_libbinder \
 	libshim_liblog \
-	libshim_libwvm
+	libshim_libwvm \
+    libshim_atomic
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
