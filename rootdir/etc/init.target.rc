@@ -163,7 +163,7 @@ service qosmgrd /system/bin/qosmgr /system/etc/qosmgr_rules.xml
    group system
    disabled
 
-service thermal-engine /system/bin/thermal-engine -c /system/etc/thermal-engine.conf
+service thermal-engine /system/bin/thermal-engine -c /system/vendor/etc/thermal-engine.conf
    class main
    user root
    group root
