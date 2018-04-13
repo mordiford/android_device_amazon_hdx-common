@@ -15,14 +15,14 @@ export HAVE_CFG80211=1
 include $(CLEAR_VARS)
 LOCAL_MODULE             := cfg80211.ko
 LOCAL_MODULE_TAGS        := debug
-LOCAL_MODULE_PATH        := $(TARGET_OUT)/lib/modules/ath6kl
+LOCAL_MODULE_PATH        := $(TARGET_OUT_VENDOR)/lib/modules/ath6kl
 include $(DLKM_DIR)/AndroidKernelModule.mk
 
 include $(CLEAR_VARS)
 LOCAL_MODULE             := ath6kl_sdio.ko
 LOCAL_MODULE_KBUILD_NAME := wlan.ko
 LOCAL_MODULE_TAGS        := debug
-LOCAL_MODULE_PATH        := $(TARGET_OUT)/lib/modules/ath6kl
+LOCAL_MODULE_PATH        := $(TARGET_OUT_VENDOR)/lib/modules/ath6kl
 include $(DLKM_DIR)/AndroidKernelModule.mk
 endif
 
@@ -33,14 +33,14 @@ export BUILD_ATH_ETH_ALX=1
 include $(CLEAR_VARS)
 LOCAL_MODULE             := compat.ko
 LOCAL_MODULE_TAGS        := debug
-LOCAL_MODULE_PATH        := $(TARGET_OUT)/lib/modules/compat
+LOCAL_MODULE_PATH        := $(TARGET_OUT_VENDOR)/lib/modules/compat
 include $(DLKM_DIR)/AndroidKernelModule.mk
 
 include $(CLEAR_VARS)
 LOCAL_MODULE             := alx.ko
 LOCAL_MODULE_KBUILD_NAME := eth.ko
 LOCAL_MODULE_TAGS        := optional debug
-LOCAL_MODULE_PATH        := $(TARGET_OUT)/lib/modules/alx
+LOCAL_MODULE_PATH        := $(TARGET_OUT_VENDOR)/lib/modules/alx
 include $(DLKM_DIR)/AndroidKernelModule.mk
 
 endif
@@ -82,7 +82,7 @@ export HAVE_CFG80211_KERNEL3_7=0
 include $(CLEAR_VARS)
 LOCAL_MODULE             := cfg80211.ko
 LOCAL_MODULE_TAGS        := debug
-LOCAL_MODULE_PATH        := $(TARGET_OUT)/lib/modules/ath6kl-3.5
+LOCAL_MODULE_PATH        := $(TARGET_OUT_VENDOR)/lib/modules/ath6kl-3.5
 include $(DLKM_DIR)/AndroidKernelModule.mk
 endif
 endif
@@ -92,14 +92,14 @@ include $(CLEAR_VARS)
 LOCAL_MODULE             := ath6kl_usb.ko
 LOCAL_MODULE_TAGS        := optional debug
 LOCAL_MODULE_KBUILD_NAME := wlan.ko
-LOCAL_MODULE_PATH        := $(TARGET_OUT)/lib/modules/ath6kl-3.5
+LOCAL_MODULE_PATH        := $(TARGET_OUT_VENDOR)/lib/modules/ath6kl-3.5
 include $(DLKM_DIR)/AndroidKernelModule.mk
 
 # WLAN SYMLINKS
 
 include $(CLEAR_VARS)
 
-WCNSS_QCOM_CFG_LINK := $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+WCNSS_QCOM_CFG_LINK := $(TARGET_OUT_VENDOR)/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 $(WCNSS_QCOM_CFG_LINK): WCNSS_QCOM_CFG_FILE := /data/misc/wifi/WCNSS_qcom_cfg.ini
 $(WCNSS_QCOM_CFG_LINK): $(LOCAL_INSTALLED_MODULE) $(LOCAL_PATH)/Android.mk
 	$(hide) echo "Symlink: $(WCNSS_QCOM_CFG_LINK) -> $(WCNSS_QCOM_CFG_FILE)"
@@ -107,7 +107,7 @@ $(WCNSS_QCOM_CFG_LINK): $(LOCAL_INSTALLED_MODULE) $(LOCAL_PATH)/Android.mk
 	$(hide) rm -rf $@
 	$(hide) ln -sf $(WCNSS_QCOM_CFG_FILE) $@
 
-WCNSS_QCOM_WLAN_NV_LINK := $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
+WCNSS_QCOM_WLAN_NV_LINK := $(TARGET_OUT_VENDOR)/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 $(WCNSS_QCOM_WLAN_NV_LINK): WCNSS_QCOM_WLAN_NV_FILE := /persist/WCNSS_qcom_wlan_nv.bin
 $(WCNSS_QCOM_WLAN_NV_LINK): $(LOCAL_INSTALLED_MODULE) $(LOCAL_PATH)/Android.mk
 	$(hide) echo "Symlink: $(WCNSS_QCOM_WLAN_NV_LINK) -> $(WCNSS_QCOM_WLAN_NV_FILE)"
@@ -115,8 +115,8 @@ $(WCNSS_QCOM_WLAN_NV_LINK): $(LOCAL_INSTALLED_MODULE) $(LOCAL_PATH)/Android.mk
 	$(hide) rm -rf $@
 	$(hide) ln -sf $(WCNSS_QCOM_WLAN_NV_FILE) $@
 
-ATH6KL_WLAN_LINK := $(TARGET_OUT)/lib/modules/wlan.ko
-$(ATH6KL_WLAN_LINK): ATH6KL_WLAN_FILE := /system/lib/modules/ath6kl-3.5/ath6kl_usb.ko
+ATH6KL_WLAN_LINK := $(TARGET_OUT_VENDOR)/lib/modules/wlan.ko
+$(ATH6KL_WLAN_LINK): ATH6KL_WLAN_FILE := $(TARGET_OUT_VENDOR)/lib/modules/ath6kl-3.5/ath6kl_usb.ko
 $(ATH6KL_WLAN_LINK): $(LOCAL_INSTALLED_MODULE) $(LOCAL_PATH)/Android.mk
 	$(hide) echo "Symlink: $(ATH6KL_WLAN_LINK) -> $(ATH6KL_WLAN_FILE)"
 	$(hide) mkdir -p $(dir $@)
