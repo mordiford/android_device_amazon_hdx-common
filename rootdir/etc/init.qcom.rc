@@ -271,15 +271,8 @@ service usbhub_init /system/bin/usbhub_init
 service qcomsysd /system/bin/qcom-system-daemon
     class main
 
-service ssr_setup /system/bin/ssr_setup
-    oneshot
-    disabled
-
 on property:wifi.change_nv_owner=1
     chown wifi wifi /persist/WCNSS_qcom_wlan_nv.bin
-
-on property:persist.sys.ssr.restart_level=*
-    start ssr_setup
 
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
@@ -622,12 +615,6 @@ service hcidump /system/bin/sh /system/etc/hcidump.sh
 
 service charger /charger
     class charger
-
-service ssr_diag /system/bin/ssr_diag
-    class late_start
-    user system
-    group system
-    disabled
 
 service hvdcp /system/bin/hvdcp
     class core
