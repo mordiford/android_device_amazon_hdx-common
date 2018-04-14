@@ -190,18 +190,6 @@ on property:sys.ims.DATA_DAEMON_STATUS=1
    start ims_rtp_daemon
    start imscmservice
 
-#service ppd /system/bin/mm-pp-daemon --enable-cabl --enable-ad
-#   class late_start
-#   user system
-#   socket pps stream 0660 system system graphics
-#   group system graphics
-
-#on property:init.svc.surfaceflinger=stopped
-#   stop ppd
-
-#on property:init.svc.surfaceflinger=running
-#   start ppd
-
 # corefile limit and ETB enabling
 on property:persist.debug.trace=1
     write /sys/module/coresight_event/parameters/event_abort_enable 1
