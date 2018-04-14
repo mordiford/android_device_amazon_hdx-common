@@ -126,27 +126,6 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
     user camera
     group camera system inet input graphics
 
-#start gesture server as daemon
-service qgesturesvr /system/bin/mm-gesture-daemon
-    class late_start
-    user system
-    group system camera input graphics net_bt_stack
-
-service qrngd /system/bin/qrngd -f
-    class main
-    user root
-    group root
-
-service qrngp /system/bin/qrngp
-    class main
-    user root
-    group root
-    oneshot
-    disabled
-
-on property:sys.boot_completed=1
-    start qrngp
-
 #service qseecomd /system/bin/qseecomd
 #   class core
 #   user root
@@ -156,11 +135,6 @@ service mpdecision /system/bin/mpdecision --avg_comp
    class main
    user root
    group root system
-   disabled
-
-service qosmgrd /system/bin/qosmgr /system/etc/qosmgr_rules.xml
-   user system
-   group system
    disabled
 
 service thermal-engine /system/bin/thermal-engine -c /system/vendor/etc/thermal-engine.conf
@@ -185,61 +159,6 @@ service adsprpcd /system/bin/adsprpcd
    class main
    user media
    group media
-
-service usf_tester /system/bin/usf_tester
-    user system
-    group system inet
-    disabled
-
-service usf_epos /system/bin/usf_epos
-    class main
-    user system
-    group system inet
-    disabled
-
-service usf_gesture /system/bin/usf_gesture
-    user system
-    group system inet
-    disabled
-
-service usf_sync_gesture /system/bin/usf_sync_gesture
-    user system
-    group system inet
-    disabled
-
-service usf_p2p /system/bin/usf_p2p
-    user system
-    group system inet
-    disabled
-
-service usf_hovering /system/bin/usf_hovering
-    user system
-    group system inet
-    disabled
-
-service usf_proximity /system/bin/usf_proximity
-    user system
-    group system inet
-    disabled
-
-service usf_pairing /system/bin/usf_pairing
-    user system
-    group system inet
-    disabled
-
-service usf_sw_calib /system/bin/usf_sw_calib
-    user system
-    group system inet
-    disabled
-
-service usf-post-boot /system/bin/sh /system/etc/usf_post_boot.sh
-    class late_start
-    user root
-    disabled
-    oneshot
-
-on property:init.svc.bootanim=stopped
-    start usf-post-boot
 
 service imsqmidaemon /system/bin/imsqmidaemon
     class main
@@ -313,12 +232,6 @@ service qmiproxy /system/bin/qmiproxy
     user radio
     group radio qcom_diag
     disabled
-
-service ftm_ffbm /system/bin/ftmdaemon
-    user root
-    group root
-    disabled
-    oneshot
 
 service gpsone_daemon /system/bin/gpsone_daemon
     class late_start
