@@ -67,10 +67,6 @@ on post-fs-data
     mkdir /tombstones/dsps 0771 system system
     mkdir /data/usf 0700 system system
 
-    # sensors
-    mkdir /data/misc/sensors 0775 root root
-    mkdir /persist/sensor_calibration 0771 system system
-
     mkdir /data/connectivity/nsrm 0771 system system
     chown system system /data/connectivity/nsrm
 
@@ -96,11 +92,6 @@ on boot
     # bluetooth external ldo
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/device/extldo
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
-
-    # sensors
-    mkdir /persist/sensors 0775 root root
-    chmod 0664 /persist/sensors/sensors_settings
-    chown system root /persist/sensors/sensors_settings
 
 # Allow usb charging to be disabled persistently
 on property:persist.usb.chgdisabled=1
@@ -283,12 +274,6 @@ service ds_fmc_appd /system/bin/ds_fmc_appd -p "rmnet0" -D
 
 on property:persist.data.ds_fmc_app.mode=1
     start ds_fmc_appd
-
-
-service qcom-sensor-sh /system/bin/sh /init.qcom.sensor.sh
-    class main
-    user root
-    oneshot
 
 service ath6kl-service /system/bin/ath6kl-service
     class late_start
