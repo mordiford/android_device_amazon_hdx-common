@@ -88,7 +88,6 @@ on post-fs-data
     chmod 0777 /data/misc/audit
 
 on boot
-    insmod /system/lib/modules/adsprpc.ko
     # bluetooth external ldo
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/device/extldo
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
