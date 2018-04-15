@@ -114,6 +114,10 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/etc/izat.conf:system/etc/izat.conf \
 	$(LOCAL_PATH)/configs/etc/lowi.conf:system/etc/lowi.conf \
 
+# IRSC
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/etc/sec_config:system/etc/sec_config
+
 # Lights
 PRODUCT_PACKAGES += \
 	lights.msm8974
@@ -142,6 +146,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	qrngd \
 	qrngp
+
+# Sensors
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/etc/sensor_def_qcomdev.conf:system/etc/sensor_def_qcomdev.conf
 
 # Keystore
 #PRODUCT_PACKAGES += \
