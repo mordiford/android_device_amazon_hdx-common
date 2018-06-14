@@ -19,6 +19,7 @@ TARGET_CPU_SMP := true
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := krait
 ARCH_ARM_HAVE_TLS_REGISTER := true
+LZMA_RAMDISK_TARGETS := [boot,recovery]
 
 # Amazon KitKat libraries have text relocations, don't error out when
 # using them.  TODO: Look through each lib which generates this error
@@ -28,6 +29,7 @@ TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 # Kernel
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01e00000
 BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_IMAGE_NAME := zImage
@@ -95,8 +97,8 @@ MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
-# camera HAL1
-TARGET_HAS_LEGACY_CAMERA_HAL1 := true
+# camera media ext
+TARGET_USES_MEDIA_EXTENSIONS := true
 
 # Surfaceflinger optimization for VD surfaces
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
@@ -121,6 +123,7 @@ BOARD_BATTERY_DEVICE_NAME := "bq27x41"
 # Filesystem
 TARGET_FS_CONFIG_GEN := device/amazon/hdx-common/config.fs
 TARGET_HW_DISK_ENCRYPTION := true
+TARGET_LEGACY_HW_DISK_ENCRYPTION := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0xA00000
@@ -138,6 +141,7 @@ BOARD_HAS_QCOM_WLAN			:= true
 BOARD_HAS_ATH_WLAN_AR6004		:= true
 BOARD_CONFIG_ATH6KL_USB			:= true
 BOARD_HAS_CFG80211_KERNEL3_4		:= true
+PRODUCT_VENDOR_MOVE_ENABLED      	:= true
 BOARD_WLAN_DEVICE			:= qcwcn
 WPA_SUPPLICANT_VERSION			:= VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER		:= NL80211
@@ -163,6 +167,11 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/msm_dwc3/f9200000.dwc3/gadget/lu
 # The backlight is controlled through the lights interface
 # so this needs to stay commented out
 #TARGET_PROVIDES_LIBLIGHT := true
+
+# Power
+TARGET_HAS_LEGACY_POWER_STATS := true
+TARGET_HAS_NO_WIFI_STATS := true
+TARGET_USES_INTERACTION_BOOST := true
 
 # Temporary
 USE_CAMERA_STUB := true
